@@ -4,15 +4,6 @@
 
 ---
 
-## 📦 Games Included
-
-| Game | Description |
-|------|-------------|
-| 🐍 **Snake** | Classic snake game — eat food, grow longer, don't hit the walls or yourself |
-| 🐦 **Floppy Bird** | Flappy Bird-inspired side-scroller — tap to flap, dodge the pipes |
-
----
-
 ## 🔧 Hardware Requirements
 
 | Component | Details |
