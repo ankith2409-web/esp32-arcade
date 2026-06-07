@@ -1,6 +1,17 @@
-# 🎮 ESP32 Retro Arcade — Snake & Floppy Bird
+# 🎮 ESP32 Retro Arcade Collection
 
-> Two classic arcade games running on an ESP32 microcontroller with a joystick and LCD display. Built from scratch in C/C++ using the Arduino framework.
+> A collection of classic arcade games running on an ESP32 microcontroller with a joystick and LCD display. Built in C/C++ using the Arduino framework.
+
+---
+
+## 🕹️ Games Included
+
+- **Asteroid Dodge** (`asteroid_dodge.ino`): Survive an asteroid field by dodging space rocks!
+- **Breakout** (`breakout.ino`): Classic brick-breaking action.
+- **Flappy Bird** (`flappy.c` / `project.c`): Navigate your bird through obstacles.
+- **Maze Runner** (`maze_runner.ino`): Find your way through a tricky maze.
+- **Tetris** (`tetris.ino`): The timeless block-stacking puzzle.
+- **Whack-A-Mole** (`whack_a_mole.ino`): Test your reflexes by hitting targets as they appear.
 
 ---
 
@@ -13,31 +24,6 @@
 | Input | Analog joystick module (X/Y axes + push button) |
 | Power | USB (5V via DevKit) or 3.7V LiPo with TP4056 |
 | Extras | Breadboard, jumper wires |
-
-> **Note:** Floppy Bird uses the joystick button (or Y-axis tap) to flap. Snake uses the joystick axes for direction.
-
----
-
-## 🗂️ Project Structure
-
-```
-esp32-retro-arcade/
-│
-├── snake/
-│   ├── snake.ino           # Main sketch
-│   ├── game.h              # Game logic header
-│   └── display.h           # Display helper functions
-│
-├── floppy_bird/
-│   ├── floppy_bird.ino     # Main sketch
-│   ├── bird.h              # Bird physics & state
-│   └── pipes.h             # Pipe generation & collision
-│
-├── shared/
-│   └── config.h            # Pin definitions & common config
-│
-└── README.md
-```
 
 ---
 
@@ -66,7 +52,7 @@ esp32-retro-arcade/
 | SCK | GPIO18 |
 | LED/BL | 3.3V or GPIO (for brightness control) |
 
-> Pin assignments can be changed in `shared/config.h`.
+> Note: Pin assignments may vary slightly depending on the specific game sketch. Check the top of each `.ino` or `.c` file for accurate definitions.
 
 ---
 
@@ -75,8 +61,8 @@ esp32-retro-arcade/
 ### 1. Clone the repo
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/esp32-retro-arcade.git
-cd esp32-retro-arcade
+git clone https://github.com/ankith2409-web/esp32-arcade.git
+cd esp32-arcade
 ```
 
 ### 2. Install dependencies
@@ -89,50 +75,18 @@ Open Arduino IDE and install the following libraries via **Library Manager** (`S
 
 ### 3. Flash a game
 
-- Open `snake/snake.ino` or `floppy_bird/floppy_bird.ino` in Arduino IDE
+- Open any game file (e.g., `asteroid_dodge.ino`) in the Arduino IDE.
 - Select your board: `Tools → Board → ESP32 Dev Module`
 - Select the correct COM port
 - Hit **Upload** ⬆️
 
 ---
 
-## 🎮 Controls
-
-### Snake
-| Action | Input |
-|--------|-------|
-| Move Up | Joystick ↑ |
-| Move Down | Joystick ↓ |
-| Move Left | Joystick ← |
-| Move Right | Joystick → |
-| Pause / Restart | Joystick Button |
-
-### Floppy Bird
-| Action | Input |
-|--------|-------|
-| Flap | Joystick Button (press) |
-| Start Game | Joystick Button |
-| Restart after death | Joystick Button |
-
-
----
-
-## 🧠 How It Works
-
-### Snake
-The game grid is mapped to the LCD resolution divided by `GRID_SIZE`. The snake body is stored as a queue of (x, y) positions. Each frame, the head advances in the current direction, and the tail is removed — unless food was just eaten, in which case the tail stays (grow). Collision detection checks the head against walls and the body array.
-
-### Floppy Bird
-The bird has a vertical velocity that increases each frame due to gravity. A button press applies an upward impulse (`FLAP_STRENGTH`). Pipes are generated off-screen at random heights and scroll left each frame. Collision is AABB (axis-aligned bounding box) between the bird sprite and each pipe rectangle.
-
----
-
 ## 📋 TODO / Roadmap
 
 - [ ] High score saved to ESP32 NVS (non-volatile storage)
-- [ ] Game selection menu on boot
+- [ ] Game selection menu on boot (combine all into one project!)
 - [ ] Buzzer / speaker for sound effects
-- [ ] Difficulty levels for both games
 - [ ] Bluetooth score sharing
 
 ---
