@@ -10,6 +10,7 @@
 - **Breakout** (`breakout.ino`): Classic brick-breaking action.
 - **Flappy Bird** (`flappy.c` / `project.c`): Navigate your bird through obstacles.
 - **Maze Runner** (`maze_runner.ino`): Find your way through a tricky maze.
+- **Pong** (`pong.ino`): Classic arcade tennis, paddle against the AI.
 - **Snake** (`snake.ino`): The classic snake arcade game, utilizing the analog joystick.
 - **Tetris** (`tetris.ino`): The timeless block-stacking puzzle.
 - **Whack-A-Mole** (`whack_a_mole.ino`): Test your reflexes by hitting targets as they appear.
